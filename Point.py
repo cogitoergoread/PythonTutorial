@@ -4,6 +4,7 @@ class Point:
         self.y = y
 
     def distance_from_origin(self):
-        return (x *x + y * y) ** .5
+        return (self.x * self.x + self.y * self.y) ** .5
 
     def distance(self, p):
+        return
