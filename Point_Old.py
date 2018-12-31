@@ -4,7 +4,7 @@ http://www.openbookproject.net/thinkcs/python/english2e/ch13.html
 from math import sqrt
 
 
-class Point:
+class PointOld:
     """
     Egy két dimenziós pont adatszerkezete
     """
@@ -19,7 +19,7 @@ class Point:
         """
         Az adott pont és a paraméterként kapott pont távolságát adja vissza.
         :param p: Ettől mért távolságot vesszük.
-        :type p: Point
+        :type p: PointOld
         :return: Descart távolság a pont és a paramter között
         :rtype: int
         """

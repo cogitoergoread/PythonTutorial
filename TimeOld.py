@@ -4,7 +4,7 @@ http://www.openbookproject.net/thinkcs/python/english2e/ch14.html
 from functools import total_ordering
 
 @total_ordering
-class Time:
+class TimeOld:
     def __init__(self, h=0, m=0, s=0):
         """
         Idő létrehozása Óra,Perc,Másodperc darabokból
@@ -41,9 +41,9 @@ class Time:
         :param seconds: Másodperc
         :type seconds: int
         :return: Másodpercből konvertált idő
-        :rtype: Time
+        :rtype: TimeOld
         """
-        time = Time()
+        time = TimeOld()
         time.hours = seconds // 3600
         time.minutes = (seconds - 3600 * time.hours) // 60
         time.seconds = seconds - 3600 * time.hours - 60 * time.minutes
@@ -53,11 +53,11 @@ class Time:
         """
         Idő hozzáadása az objeektum idejéhez
         :param t1: Hozzáadandó idő
-        :type t1: Time
+        :type t1: TimeOld
         :return: A két idő összege
-        :rtype: Time
+        :rtype: TimeOld
         """
-        sum: Time = Time()
+        sum: TimeOld = TimeOld()
         # Első , naive változat
         # sum.seconds = self.seconds + t1.seconds
         # sum.minutes = self.minutes + t1.minutes
@@ -75,9 +75,9 @@ class Time:
         :param sec: Ennyi másodpercel nöcel
         :type sec: int
         :return: megnövelt idő
-        :rtype: Time
+        :rtype: TimeOld
         """
-        result: Time = Time()
+        result: TimeOld = TimeOld()
         result.seconds = self.seconds + sec
         result.minutes = self.minutes + result.seconds // 60
         result.seconds = result.seconds % 60
