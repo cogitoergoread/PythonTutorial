@@ -77,7 +77,11 @@ class SMS_store:
         :return: SMS returned
         :rtype: SMS
         """
-        pass
+        if i > 0 and i < self.store.count():
+            self.store[i].viewed = True
+            return self.store[i]
+        return None
+
 
     def delete(self, i):
         """
@@ -85,7 +89,7 @@ class SMS_store:
         :param i: the index of SMS to delete
         :type i: int
         """
-        pass
+        self.store.remove(i)
 
     def clear(self):
         """
