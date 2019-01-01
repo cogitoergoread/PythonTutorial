@@ -69,11 +69,13 @@ class SMS_store:
         """
         pass
 
-    def get_message(self):
+    def get_message(self, i):
         """
         Return (from_number, time_arrived, text_of_sms) for message[i]
         Also change its state to "has been viewed".
         If there is no message at position i, return None
+        :param i: the index of SMS to get
+        :type i: int
         :return: SMS returned
         :rtype: SMS
         """
