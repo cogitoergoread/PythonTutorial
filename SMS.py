@@ -10,7 +10,7 @@ class SMS:
     Each message will be represented as a tuple:
     (has_been_viewed, from_number, time_arrived, text_of_SMS)
     """
-    def __init__(self, viewed=False, fromn, time, text):
+    def __init__(self, fromn, time, text, viewed=False):
         self.viewed = viewed
         self.fromn = fromn
         self.time = time
@@ -20,7 +20,7 @@ class SMS:
         return "SMS(Viewes:{},FromNr:{}, TimeArrived:{}, Text:{})".format(self.viewed, self.fromn, self.time, self.text)
 
     def __str__(self):
-        return "({},{},{},{})".format(self.viewed, self.fromn, self.time, self.text
+        return "({},{},{},{})".format(self.viewed, self.fromn, self.time, self.text)
 
     def __eq__(self, other):
         if type(other) is type(self):
@@ -67,7 +67,7 @@ class SMS_store:
         :return: indeces of unread  SMS
         :rtype: list
         """
-        pass
+        return [i for i in range(len(self.store)) if not self.store[i].viewed]
 
     def get_message(self, i):
         """
@@ -79,7 +79,7 @@ class SMS_store:
         :return: SMS returned
         :rtype: SMS
         """
-        if i > 0 and i < self.store.count():
+        if i > 0 and i < len(self.store):
             self.store[i].viewed = True
             return self.store[i]
         return None
@@ -91,7 +91,7 @@ class SMS_store:
         :param i: the index of SMS to delete
         :type i: int
         """
-        self.store.remove(i)
+        self.store.pop(i)
 
     def clear(self):
         """
