@@ -42,3 +42,12 @@ class TestPoint(TestCase):
 
     def test_get_line_to(self):
         self.assertEqual((2,3), Point(4,11).get_line_to(Point(6,15)))
+
+    def test_sdd(self):
+        self.assertEqual(Point(10,12), Point(3,4) + Point(7,8))
+
+    def test_mul(self):
+        self.assertEqual(43, Point(3,4) * Point(5,7))
+
+    def test_rmul(self):
+        self.assertEqual(Point(6,8), 2.0 * Point(3,4))

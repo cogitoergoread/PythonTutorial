@@ -8,7 +8,7 @@ class MyTime:
     """
     Records the time of day
     """
-    def __init__(self,  hrs=0, mins=0, secs=0):
+    def __init__(self, hrs: int = 0, mins: int = 0, secs: int = 0) -> object:
         """
         Create a new MyTime object initialized to hrs, mins, secs.
         The values of mins and secs may be outside the range 0-59,
@@ -51,13 +51,15 @@ class MyTime:
         :return: megnövelt idő
         :rtype: MyTime
         """
-        result: MyTime = MyTime()
-        result.seconds = self.seconds + sec
-        result.minutes = self.minutes + result.seconds // 60
-        result.seconds = result.seconds % 60
-        result.hours = self.hours + result.minutes // 60
-        result.minutes = result.minutes % 60
-        return result
+        # Naive way
+        # result: MyTime = MyTime()
+        # result.seconds = self.seconds + sec
+        # result.minutes = self.minutes + result.seconds // 60
+        # result.seconds = result.seconds % 60
+        # result.hours = self.hours + result.minutes // 60
+        # result.minutes = result.minutes % 60
+        # return result
+        return MyTime(self.hours, self.minutes, self.seconds + sec)
 
     def to_seconds(self):
         """
@@ -77,3 +79,16 @@ class MyTime:
         """
         return MyTime(0, 0, self.to_seconds() + other.to_seconds())
 
+    def between(self, other_sm, other_lg):
+        """
+        takes two MyTime objects, t1 and t2, as arguments, and returns True if the invoking object falls between the
+        two times. Assume t1 <= t2, and make the test closed at the lower bound and open at the upper bound,
+        i.e. return True if t1 <= obj < t2.
+        :param other_sm: tí, Time
+        :type other_sm: MyTime
+        :param other_lg: t2 time
+        :type other_lg: MyTime
+        :return:  eturn True if t1 <= obj < t2
+        :rtype: bool
+        """
+        return other_sm <= self < other_lg

@@ -58,3 +58,9 @@ class TestMyTime(TestCase):
         time = MyTime(1, 59, 59)
         self.assertEqual(7199, time.to_seconds())
 
+    def test_between(self):
+        t1 = MyTime(1, 40, 50)
+        t2 = MyTime(4, 50, 55)
+        self.assertTrue( MyTime(1, 41, 50).between( t1, t2) )
+        self.assertFalse( MyTime(0, 40, 50).between( t1, t2) )
+        self.assertFalse( MyTime(23, 40, 50).between( t1, t2) )

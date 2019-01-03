@@ -89,6 +89,36 @@ class Point:
         c : float = self.y - m * self.x
         return (m, c)
 
+    def __add__(self, other):
+        """
+        adding two points adds their respective (x, y) coordinates:
+        :param other: other point to add
+        :type other: Point
+        :return: sum of appropriíte coordinates
+        :rtype: Point
+        """
+        return Point(self.x + other.x, self.y + other.y)
+
+    def __mul__(self, other):
+        """
+        computes the dot product of the two Points, defined according to the rules of linear algebra
+        :param other: other point to multiply
+        :type other: Point
+        :return: dot product of two points
+        :rtype: float
+        """
+        return self.x * other.x + self.y * other.y
+
+    def __rmul__(self, other):
+        """
+        performs scalar multiplication
+        :param other: scalar to multiply with
+        :type other: float
+        :return: scalar product
+        :rtype: Point
+        """
+        return Point(other * self.x, other * self.y)
+
 """
 Kimaradt:
 
