@@ -13,3 +13,12 @@ Dok [generálás](https://stackoverflow.com/questions/46341816/python-sphinx-how
 
 
 Az eddigi könyv Python 2 volt. Helyette: [Python 3 kell](http://openbookproject.net/thinkcs/python/english3e/index.html)
+
+Struktúra
+---------
+
+[Könyv](https://docs.python-guide.org/writing/structure/) alapján:
+
+[StackOverflow](https://stackoverflow.com/questions/193161/what-is-the-best-project-structure-for-a-python-application) is jó.
+
+/tests folder alá a tesztek!
