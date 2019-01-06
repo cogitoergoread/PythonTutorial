@@ -32,7 +32,7 @@ class TimeOld:
 
     def __lt__(self, other):
         if type(other) is type(self):
-            return self.convert_to_seconds() < other.to_seconds()
+            return self.convert_to_seconds() < other.convert_to_seconds()
         return NotImplemented
 
     def make_time(seconds=0):
